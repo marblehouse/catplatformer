@@ -1,0 +1,3 @@
+Content\player.xnb
+Content\myFont.xnb
+Content\background_1.xnb

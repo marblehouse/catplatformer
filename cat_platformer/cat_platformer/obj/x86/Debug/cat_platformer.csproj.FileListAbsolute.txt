@@ -1,0 +1,9 @@
+c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_platformer\cat_platformer\bin\x86\Debug\cat_platformer.exe
+c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_platformer\cat_platformer\bin\x86\Debug\cat_platformer.pdb
+c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_platformer\cat_platformer\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_platformer\cat_platformer\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_platformer\cat_platformer\obj\x86\Debug\cat_platformer.exe
+c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_platformer\cat_platformer\obj\x86\Debug\cat_platformer.pdb
+c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\player.xnb
+c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\myFont.xnb
+c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\background_1.xnb

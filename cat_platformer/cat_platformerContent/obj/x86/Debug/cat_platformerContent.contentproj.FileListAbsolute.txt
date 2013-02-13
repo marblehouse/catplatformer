@@ -1,0 +1,1 @@
+c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_platformer\cat_platformerContent\obj\x86\Debug\ResolveAssemblyReference.cache
