@@ -37,6 +37,24 @@
       <Output>D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\threerings.xnb</Output>
       <Time>2013-02-13T19:05:58.9263535-07:00</Time>
     </Item>
+    <Item>
+      <Source>plus.png</Source>
+      <Name>plus</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\plus.xnb</Output>
+      <Time>2013-02-13T19:27:12.7402115-07:00</Time>
+    </Item>
+    <Item>
+      <Source>skullball.png</Source>
+      <Name>skullball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\skullball.xnb</Output>
+      <Time>2013-02-13T19:27:12.7412115-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

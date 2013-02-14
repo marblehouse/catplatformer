@@ -17,3 +17,5 @@ D:\DEV2\catplatformer\cat_platformer\cat_platformer\obj\x86\Debug\Microsoft.Xna.
 D:\DEV2\catplatformer\cat_platformer\cat_platformer\obj\x86\Debug\cat_platformer.exe
 D:\DEV2\catplatformer\cat_platformer\cat_platformer\obj\x86\Debug\cat_platformer.pdb
 D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\threerings.xnb
+D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\plus.xnb
+D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\skullball.xnb
