@@ -21,7 +21,15 @@ namespace cat_platformer
         Player mainPlayer;
         SpriteFont font;
 
-        Texture2D background; 
+        Texture2D background;
+
+        Texture2D animatedRing;
+        Point frameSize = new Point(75, 75);
+        Point currentFrame = new Point(0, 0);
+        Point sheetSize = new Point(6, 8);
+
+        int timeSinceLastFrame = 0;
+        int millisecondsPerFrame = 50;
 
         int windowWidth;
         int windowHeight; 
@@ -60,6 +68,7 @@ namespace cat_platformer
             font = Content.Load<SpriteFont>("myFont");
             windowWidth  = graphics.GraphicsDevice.Viewport.Width;
             windowHeight = graphics.GraphicsDevice.Viewport.Height;
+            animatedRing = Content.Load<Texture2D>("threerings");
 
             // TODO: use this.Content to load your game content here
         }
@@ -87,7 +96,23 @@ namespace cat_platformer
             // TODO: Add your update logic here
 
             mainPlayer.Move(gameTime);
-            mainPlayer.ApplyGravity(windowHeight); 
+            mainPlayer.ApplyGravity(windowHeight);
+
+
+            timeSinceLastFrame += gameTime.ElapsedGameTime.Milliseconds;
+            if (timeSinceLastFrame > millisecondsPerFrame)
+            {
+                timeSinceLastFrame -= millisecondsPerFrame; 
+
+                ++currentFrame.X;
+                if (currentFrame.X >= sheetSize.X)
+                {
+                    currentFrame.X = 0;
+                    ++currentFrame.Y;
+                    if (currentFrame.Y >= sheetSize.Y)
+                        currentFrame.Y = 0;
+                }
+            }
 
             base.Update(gameTime);
         }
@@ -98,16 +123,26 @@ namespace cat_platformer
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
 
             // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-            spriteBatch.Draw(background, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
+            //spriteBatch.Draw(background, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
             mainPlayer.Draw(spriteBatch, Vector2.Zero);
-            spriteBatch.DrawString(font, "Speed X: " + mainPlayer._spriteSpeed.X, new Vector2(50,  0), Color.White);
-            spriteBatch.DrawString(font, "Speed Y: " + mainPlayer._spriteSpeed.Y, new Vector2(250, 0), Color.White);
-            spriteBatch.DrawString(font, "Posit X: " + mainPlayer._spritePosition.X, new Vector2(50, 40), Color.White);
-            spriteBatch.DrawString(font, "Posit Y: " + mainPlayer._spritePosition.Y, new Vector2(250,40), Color.White); 
+            //spriteBatch.DrawString(font, "Speed X: " + mainPlayer._spriteSpeed.X, new Vector2(50,  0), Color.White);
+            //spriteBatch.DrawString(font, "Speed Y: " + mainPlayer._spriteSpeed.Y, new Vector2(250, 0), Color.White);
+            //spriteBatch.DrawString(font, "Posit X: " + mainPlayer._spritePosition.X, new Vector2(50, 40), Color.White);
+            //spriteBatch.DrawString(font, "Posit Y: " + mainPlayer._spritePosition.Y, new Vector2(250,40), Color.White);
+
+            spriteBatch.Draw(animatedRing, Vector2.Zero,
+                new Rectangle(currentFrame.X * frameSize.X,
+                    currentFrame.Y * frameSize.Y,
+                    frameSize.X,
+                    frameSize.Y),
+                    Color.White, 0, Vector2.Zero,
+                    1, SpriteEffects.None, 0);
+
+
             spriteBatch.End();
 
             base.Draw(gameTime);
