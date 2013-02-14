@@ -18,10 +18,9 @@ namespace cat_platformer
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Player mainPlayer;
+        //Player mainPlayer;
         SpriteFont font;
-
-        Texture2D background;
+        double timeSurvived = 0; 
 
         Texture2D ringTexture;
         Point ringFrameSize = new Point(75, 75);
@@ -30,10 +29,10 @@ namespace cat_platformer
         int ringTimeSinceLastFrame = 0;
         int ringMillisecondsPerFrame = 50;
         Vector2 ringPosition = Vector2.Zero;
-        const float ringSpeed = 6;
-
+        const float ringSpeed = 8;
         int ringCollisionRectOffset  = 10;
-        int skullCollisionRectOffset = 10; 
+
+        
 
         Texture2D skullTexture;
         Point skullFrameSize = new Point(75, 75);
@@ -42,18 +41,18 @@ namespace cat_platformer
         Vector2 skullPosition = new Vector2(100, 100);
         int skullTimeSinceLastFrame = 0;
         int skullMillisecondsPerFrame = 50;
-        Vector2 skullSpeed = new Vector2(10, 10); 
+        Vector2 skullSpeed = new Vector2(10, 10);
+        int skullCollisionRectOffset = 10; 
 
-        MouseState prevMouseState; 
+        MouseState prevMouseState;
 
-        
 
-        int windowWidth;
-        int windowHeight; 
+        bouncingSkull[] skulls; 
+         
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            graphics = new GraphicsDeviceManager(this);            
             Content.RootDirectory = "Content";
         }
 
@@ -66,7 +65,7 @@ namespace cat_platformer
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            skulls = new bouncingSkull[5]; 
             base.Initialize();
         }
 
@@ -79,14 +78,14 @@ namespace cat_platformer
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            mainPlayer = new Player(Content);
-            background = Content.Load<Texture2D>("background_1"); 
+            spriteBatch = new SpriteBatch(GraphicsDevice);                    
             font = Content.Load<SpriteFont>("myFont");
-            windowWidth  = graphics.GraphicsDevice.Viewport.Width;
-            windowHeight = graphics.GraphicsDevice.Viewport.Height;
             ringTexture  = Content.Load<Texture2D>("threerings");
             skullTexture = Content.Load<Texture2D>("skullball");
+
+            skulls[0] = new bouncingSkull(Content); 
+            
+            
 
             // TODO: use this.Content to load your game content here
         }
@@ -113,8 +112,9 @@ namespace cat_platformer
 
             // TODO: Add your update logic here
 
-            mainPlayer.Move(gameTime);
-            mainPlayer.ApplyGravity(windowHeight);
+            skulls[0].animateBall(gameTime);
+            skulls[0].moveBall(Window); 
+            
 
 
             ringTimeSinceLastFrame += gameTime.ElapsedGameTime.Milliseconds;
@@ -197,8 +197,10 @@ namespace cat_platformer
             {
                 ringPosition.X = 0;
                 ringPosition.Y = 0;
+                timeSurvived = 0; 
             }
 
+            timeSurvived += gameTime.ElapsedGameTime.TotalSeconds;
 
             base.Update(gameTime);
         }
@@ -209,13 +211,15 @@ namespace cat_platformer
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            string temp = "Survived: " + timeSurvived.ToString("##.##") + "s"; 
+            
             GraphicsDevice.Clear(Color.White);
 
             // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             //spriteBatch.Draw(background, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
             //mainPlayer.Draw(spriteBatch, Vector2.Zero);
-            //spriteBatch.DrawString(font, "Speed X: " + mainPlayer._spriteSpeed.X, new Vector2(50,  0), Color.White);
+            spriteBatch.DrawString(font, temp, new Vector2(50,  0), Color.Red);
             //spriteBatch.DrawString(font, "Speed Y: " + mainPlayer._spriteSpeed.Y, new Vector2(250, 0), Color.White);
             //spriteBatch.DrawString(font, "Posit X: " + mainPlayer._spritePosition.X, new Vector2(50, 40), Color.White);
             //spriteBatch.DrawString(font, "Posit Y: " + mainPlayer._spritePosition.Y, new Vector2(250,40), Color.White);
@@ -229,12 +233,14 @@ namespace cat_platformer
                     1, SpriteEffects.None, 0);
 
             spriteBatch.Draw(skullTexture, skullPosition,
-                new Rectangle(skullCurrentFrame.X * ringFrameSize.X,
+                new Rectangle(skullCurrentFrame.X * skullFrameSize.X,
                     skullCurrentFrame.Y * skullFrameSize.Y,
                     skullFrameSize.X,
                     skullFrameSize.Y),
                     Color.White, 0, Vector2.Zero,
                     1, SpriteEffects.None, 0);
+
+            skulls[0].drawBall(spriteBatch);
 
 
             spriteBatch.End();
@@ -253,7 +259,7 @@ namespace cat_platformer
                                                 skullFrameSize.X - (2*skullCollisionRectOffset),
                                                 skullFrameSize.Y - (2*skullCollisionRectOffset));
 
-            return ringRect.Intersects(skullRect); 
+            return (ringRect.Intersects(skullRect) || skulls[0].Collide(ringRect)); 
         }
     }
 }
