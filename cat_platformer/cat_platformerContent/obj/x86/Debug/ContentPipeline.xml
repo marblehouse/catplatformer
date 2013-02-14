@@ -11,15 +11,6 @@
       <Time>2013-02-13T15:34:11.0855066-07:00</Time>
     </Item>
     <Item>
-      <Source>background_1.png</Source>
-      <Name>background_1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\background_1.xnb</Output>
-      <Time>2013-02-13T15:34:11.0725058-07:00</Time>
-    </Item>
-    <Item>
       <Source>myFont.spritefont</Source>
       <Name>myFont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -54,6 +45,15 @@
       <Options>None</Options>
       <Output>D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\skullball.xnb</Output>
       <Time>2013-02-13T19:27:12.7412115-07:00</Time>
+    </Item>
+    <Item>
+      <Source>cat_spritepage_first.png</Source>
+      <Name>cat_spritepage_first</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\cat_spritepage_first.xnb</Output>
+      <Time>2013-02-13T21:56:28.6614609-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

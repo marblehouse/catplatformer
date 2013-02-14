@@ -1,6 +1,6 @@
 Content\player.xnb
-Content\background_1.xnb
 Content\myFont.xnb
 Content\threerings.xnb
 Content\plus.xnb
 Content\skullball.xnb
+Content\cat_spritepage_first.xnb

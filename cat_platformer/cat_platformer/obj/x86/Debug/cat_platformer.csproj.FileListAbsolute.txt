@@ -8,7 +8,6 @@ c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_pla
 c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\myFont.xnb
 c:\users\localadmin\documents\visual studio 2010\Projects\cat_platformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\background_1.xnb
 D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\player.xnb
-D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\background_1.xnb
 D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\myFont.xnb
 D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\cat_platformer.exe
 D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\cat_platformer.pdb
@@ -19,3 +18,4 @@ D:\DEV2\catplatformer\cat_platformer\cat_platformer\obj\x86\Debug\cat_platformer
 D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\threerings.xnb
 D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\plus.xnb
 D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\skullball.xnb
+D:\DEV2\catplatformer\cat_platformer\cat_platformer\bin\x86\Debug\Content\cat_spritepage_first.xnb

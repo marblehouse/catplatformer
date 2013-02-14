@@ -32,7 +32,12 @@ namespace cat_platformer
         const float ringSpeed = 8;
         int ringCollisionRectOffset  = 10;
 
-        
+        Texture2D catTexture;
+        Point catFrameSize = new Point(85, 85);
+        Point catCurrentFrame = new Point(0, 0);
+        Point catSheetSize = new Point(1, 0);
+        int catTimeSinceLastFrame = 0;
+        int catMillisecondsPerFrame = 300; 
 
         Texture2D skullTexture;
         Point skullFrameSize = new Point(75, 75);
@@ -82,6 +87,7 @@ namespace cat_platformer
             font = Content.Load<SpriteFont>("myFont");
             ringTexture  = Content.Load<Texture2D>("threerings");
             skullTexture = Content.Load<Texture2D>("skullball");
+            catTexture = Content.Load<Texture2D>("cat_spritepage_first");
 
             skulls[0] = new bouncingSkull(Content); 
             
@@ -125,11 +131,23 @@ namespace cat_platformer
                 ++ringCurrentFrame.X;
                 if (ringCurrentFrame.X >= ringSheetSize.X)
                 {
-                    ringCurrentFrame.X = 0;
-                    ++ringCurrentFrame.Y;
-                    if (ringCurrentFrame.Y >= ringSheetSize.Y)
-                        ringCurrentFrame.Y = 0;
+                    ringCurrentFrame.X = 0;                    
                 }
+            }
+
+
+            catTimeSinceLastFrame += gameTime.ElapsedGameTime.Milliseconds;
+            if (catTimeSinceLastFrame > catMillisecondsPerFrame)
+            {
+                catTimeSinceLastFrame -= catMillisecondsPerFrame;
+
+                if (catCurrentFrame.X == 1)
+                    catCurrentFrame.X = 0;
+                else
+                    catCurrentFrame.X = 1;
+                
+
+                
             }
 
             skullTimeSinceLastFrame += gameTime.ElapsedGameTime.Milliseconds;
@@ -239,6 +257,14 @@ namespace cat_platformer
                     skullFrameSize.Y),
                     Color.White, 0, Vector2.Zero,
                     1, SpriteEffects.None, 0);
+
+            spriteBatch.Draw(catTexture, Vector2.Zero,
+                 new Rectangle(catCurrentFrame.X * catFrameSize.X,
+                    catCurrentFrame.Y * catFrameSize.Y,
+                    catFrameSize.X,
+                    catFrameSize.Y),
+                    Color.White, 0, Vector2.Zero,
+                    1, SpriteEffects.None, 0); 
 
             skulls[0].drawBall(spriteBatch);
 
